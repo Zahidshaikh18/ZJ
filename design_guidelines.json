@@ -1,0 +1,147 @@
+{
+  "project_context": {
+    "brand_name": "ZJ Infosystem",
+    "tagline": "Transforming Technology. Empowering Businesses.",
+    "founded": "2021",
+    "founder": "Mr. Dadasaheb Shaikh",
+    "location": "Hadapsar, Pune, Maharashtra, India",
+    "target_audience": "Corporate businesses, Government, Education, Manufacturing, Healthcare, Finance, SMEs, Large Enterprises.",
+    "vibe": "Clean, elegant, minimal, premium, sophisticated, enterprise-grade, comparable to Microsoft, Cisco, IBM, Oracle."
+  },
+  "typography": {
+    "font_family_heading": "Outfit, sans-serif",
+    "font_family_body": "Plus Jakarta Sans, sans-serif",
+    "font_family_mono": "JetBrains Mono, monospace",
+    "hierarchy": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight",
+      "h2": "text-4xl md:text-5xl font-semibold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium tracking-tight",
+      "h4": "text-xl md:text-2xl font-medium",
+      "body": "text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed",
+      "label_overline": "text-xs md:text-sm uppercase tracking-[0.2em] font-bold"
+    },
+    "instructions": "Avoid using Inter for headings to prevent a generic AI look. Use Outfit for a geometric, modern Microsoft-like enterprise feel, and Plus Jakarta Sans for high legibility in body text. Maintain tight tracking on headings."
+  },
+  "colors": {
+    "light_mode": {
+      "primary": "#0067B8",
+      "secondary": "#FFFFFF",
+      "accent": "#00B4D8",
+      "neutral": "#8B949E",
+      "background": "#FFFFFF",
+      "surface_subtle": "#F3F4F6",
+      "surface_navy": "#0A192F",
+      "text_main": "#0F172A",
+      "text_muted": "#64748B",
+      "border": "#E2E8F0"
+    },
+    "dark_mode": {
+      "primary": "#0078D4",
+      "secondary": "#0A192F",
+      "accent": "#00B4D8",
+      "neutral": "#8B949E",
+      "background": "#0B0F19",
+      "surface_subtle": "#111827",
+      "surface_navy": "#0A192F",
+      "text_main": "#F8FAFC",
+      "text_muted": "#94A3B8",
+      "border": "#1E293B"
+    },
+    "gradients": {
+      "button_primary": "bg-gradient-to-r from-[#0067B8] to-[#00B4D8]",
+      "hero_moving": "bg-gradient-to-br from-[#0A192F] via-[#0067B8]/20 to-[#0B0F19]"
+    },
+    "forbidden_colors": ["Purple gradients", "Magenta", "Neon green"],
+    "instructions": "Ensure WCAG AA contrast ratios minimum (4.5:1 for body). Stick to this strictly professional palette. Do NOT overuse purple."
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "card_soft": "shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+      "card_hover": "shadow-[0_20px_40px_rgb(0,0,0,0.08)]",
+      "button_glow": "shadow-[0_0_20px_rgba(0,180,216,0.3)]"
+    },
+    "glassmorphism": {
+      "light": "bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm",
+      "dark": "bg-black/40 backdrop-blur-xl border border-white/10 shadow-sm"
+    },
+    "borders": {
+      "radius": {
+        "cards": "rounded-2xl",
+        "buttons": "rounded-full md:rounded-lg",
+        "inputs": "rounded-lg"
+      }
+    },
+    "spacing_scale": {
+      "section_padding_y": "py-24 md:py-32",
+      "container_padding_x": "px-6 md:px-12 lg:px-24",
+      "grid_gap": "gap-8 md:gap-12"
+    },
+    "instructions": "Use glass effects ONLY on sticky navs, floating chat buttons, or overlay cards. Do not overuse. Rounded corners should be soft but enterprise-appropriate (e.g., 12px or 16px, not completely pill-shaped for standard cards)."
+  },
+  "components": {
+    "hero": "Immersive dark navy section with moving gradient. Very subtle network particles or grid in the background. Large heading left-aligned or centered, max width for readability. Two CTAs: Primary gradient button, Secondary outline button.",
+    "service_card": "Soft shadow, rounded-2xl, crisp icon on top-left or centered. Hover: Lifts up (-translate-y-2) and shadow deepens. Subtle animated bottom border on hover.",
+    "stat_card": "Minimalist, large numerical value (animated counter), small descriptive text. Subtle background hue of the primary color.",
+    "technology_logo_card": "Use react-icons or grayscale SVGs. Container has a 1px border that glows on hover. The logo turns full color on hover.",
+    "industry_card": "Background image with a dark gradient overlay. Text at the bottom. On hover, the image scales up slightly inside the hidden overflow container.",
+    "timeline": "Vertical line on the left. Animated dots that light up as user scrolls down (GSAP ScrollTrigger).",
+    "contact_form": "Split layout: Left side has contact info (Map, Phone, Email, WhatsApp button). Right side has Shadcn form. Clean, floating label inputs.",
+    "floating_chatbot": "Fixed bottom-right. Soft glowing shadow. When clicked, opens a chat interface with suggested questions. Use Lucide bot icon.",
+    "navigation": "Sticky glassmorphism header. Animated underlines on links. Dark/Light theme toggle included."
+  },
+  "layouts": {
+    "grid_patterns": {
+      "services": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+      "technologies": "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6",
+      "industries": "grid grid-cols-1 md:grid-cols-3 gap-6"
+    },
+    "alignment": "Optical alignment over geometrical. Left-align large paragraphs for readability. Use 'Bento' style grid for the Why Choose Us section."
+  },
+  "motion": {
+    "global_rules": "60 FPS, professional, smooth. NO bouncy or overly playful animations. Use Framer Motion and GSAP.",
+    "patterns": {
+      "fade_up": "Initial: opacity 0, y 20. Animate: opacity 1, y 0. Duration 0.6s, ease out.",
+      "stagger": "For grids, stagger children by 0.1s.",
+      "parallax": "Subtle y-axis translation on background shapes using framer-motion useScroll.",
+      "magnetic_button": "Use framer-motion useMotionValue for subtle x/y shift on hover.",
+      "scroll_progress": "Fixed top bar, height 3px, origin-left, scaleX bound to scroll progress.",
+      "text_reveal": "Overflow hidden on line wrappers, translate y 100% to 0."
+    }
+  },
+  "accessibility": {
+    "contrast": "Always ensure text meets APCA/WCAG AA against backgrounds.",
+    "focus": "focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none.",
+    "reduced_motion": "Respect 'prefers-reduced-motion'. Turn off parallax/magnetic effects if true.",
+    "testing": "All interactive elements MUST have 'data-testid' attributes (e.g., data-testid='contact-submit-button')."
+  },
+  "media": {
+    "image_urls": {
+      "cloud_networking": "https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHxjbG91ZCUyMG5ldHdvcmtpbmclMjB0ZWNobm9sb2d5fGVufDB8fHx8MTc4Mzg4MDUzNXww&ixlib=rb-4.1.0&q=85",
+      "cybersecurity": "https://images.pexels.com/photos/1089438/pexels-photo-1089438.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "corporate_team": "https://images.unsplash.com/photo-1758691737124-05c5bffe46f0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBjb3Jwb3JhdGUlMjBvZmZpY2UlMjB0ZWFtfGVufDB8fHx8MTc4Mzg4MDUzNXww&ixlib=rb-4.1.0&q=85",
+      "data_center": "https://images.unsplash.com/photo-1775519520461-6b6e068d9250?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwyfHxkYXRhJTIwY2VudGVyJTIwYmx1ZXxlbnwwfHx8fDE3ODM4ODA1Njl8MA&ixlib=rb-4.1.0&q=85",
+      "abstract_tech": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwYWJzdHJhY3QlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc4Mzg4MDU2OXww&ixlib=rb-4.1.0&q=85"
+    },
+    "instructions": "Use images as backgrounds with dark overlays (e.g. bg-black/60) to maintain contrast. No generic placeholders allowed."
+  },
+  "3d_libraries": {
+    "recommendation": "tsparticles (for the hero background network/particles), react-fast-marquee (for technology logos), framer-motion (for card interactions)."
+  },
+  "instructions_to_main_agent": [
+    "Create the website using React and Tailwind CSS. Ensure all files use .js extension, not .tsx.",
+    "Do NOT center align the app container (.App { text-align: center; } is banned).",
+    "Use react-icons/si for technology logos (e.g., SiMicrosoft, SiCisco, SiDocker).",
+    "Implement a theme provider to support Dark Mode, Light Mode, and Auto (system preference).",
+    "Use standard HTML structure combined with Tailwind. Use Shadcn components for complex forms, selects, and dialogs.",
+    "Do NOT apply 'transition: all' globally.",
+    "Include a floating AI Chatbot button using framer-motion for smooth toggle."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic outputs. Break the mold: use large typography, generous padding (p-12, py-24), and subtle grain overlays.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glassmorphism sparingly (max 1-2 elements per page).",
+    "Always use modern button styles with hover interaction.",
+    "Never use generic placeholder URLs. Use the provided image URLs.",
+    "All interactive elements must include a 'data-testid' attribute."
+  ]
+}
