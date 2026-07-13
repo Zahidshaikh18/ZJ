@@ -19,7 +19,6 @@ const NAV = [
   { to: "/industries", label: "Industries" },
   { to: "/why-us", label: "Why Us" },
   { to: "/technologies", label: "Technologies" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -88,14 +87,13 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link to="/contact" className="hidden lg:inline-flex">
-            <Button
-              data-testid="nav-cta-contact"
-              className="rounded-full px-5 bg-gradient-to-r from-[hsl(207_100%_38%)] to-[hsl(191_100%_42%)] text-white shadow-[0_10px_30px_-10px_hsl(207_100%_45%_/_0.55)] hover:opacity-95 transition-opacity"
-            >
-              Get in touch
-            </Button>
-          </Link>
+          <Button
+            asChild
+            data-testid="nav-cta-contact"
+            className="hidden lg:inline-flex rounded-full px-5 bg-gradient-to-r from-[hsl(207_100%_38%)] to-[hsl(191_100%_42%)] text-white shadow-[0_10px_30px_-10px_hsl(207_100%_45%_/_0.55)] hover:opacity-95 transition-opacity"
+          >
+            <Link to="/contact">Get in touch</Link>
+          </Button>
 
           <button
             data-testid="mobile-menu-toggle"
@@ -131,11 +129,11 @@ export default function Navbar() {
                   {item.label}
                 </NavLink>
               ))}
-              <Link to="/contact" onClick={() => setOpen(false)}>
-                <Button className="w-full rounded-full bg-gradient-to-r from-[hsl(207_100%_38%)] to-[hsl(191_100%_42%)] text-white">
+              <Button asChild className="w-full rounded-full bg-gradient-to-r from-[hsl(207_100%_38%)] to-[hsl(191_100%_42%)] text-white">
+                <Link to="/contact" onClick={() => setOpen(false)}>
                   Get in touch
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </motion.div>
         )}

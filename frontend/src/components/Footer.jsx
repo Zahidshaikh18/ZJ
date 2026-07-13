@@ -54,7 +54,7 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase tracking-[0.2em] font-bold text-muted-foreground mb-4">Reach Us</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" /><span>{COMPANY.address.line1}, {COMPANY.address.line2}, {COMPANY.address.state}</span></li>
+            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" /><span className="whitespace-pre-line">{COMPANY.address.lines.join("\n")}</span></li>
             <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 flex-shrink-0" /><a href={`tel:${COMPANY.phone}`} className="hover:text-foreground">{COMPANY.phone}</a></li>
             <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 flex-shrink-0" /><a href={`mailto:${COMPANY.email}`} className="hover:text-foreground">{COMPANY.email}</a></li>
           </ul>

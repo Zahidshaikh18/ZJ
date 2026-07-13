@@ -26,8 +26,8 @@ const schema = z.object({
   full_name: z.string().min(2, "Please enter your full name"),
   company: z.string().optional(),
   email: z.string().email("Enter a valid email"),
-  phone: z.string().optional(),
-  service: z.string().optional(),
+  phone: z.string().min(1, "Please enter your phone number"),
+  service: z.string().min(1, "Please select a service"),
   message: z.string().min(10, "Tell us a bit more (min 10 characters)"),
 });
 
@@ -92,7 +92,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-xs uppercase tracking-widest text-muted-foreground">Office</div>
-                      <div className="mt-1">{COMPANY.address.line1}<br />{COMPANY.address.line2}<br />{COMPANY.address.state} {COMPANY.address.pincode}</div>
+                      <div className="mt-1 whitespace-pre-line">{COMPANY.address.lines.join("\n")}</div>
                     </div>
                   </li>
                   <li className="flex gap-4">
@@ -130,13 +130,25 @@ export default function Contact() {
 
             <Reveal delay={0.1}>
               <div className="rounded-2xl border border-border overflow-hidden h-64 relative bg-secondary">
-                <iframe
-                  title="ZJ Infosystem office location"
-                  src="https://www.google.com/maps?q=Hadapsar+Pune+Maharashtra&output=embed"
-                  className="absolute inset-0 h-full w-full grayscale-[35%]"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <a
+                  href="https://www.google.com/maps/place/The+Eyerish/@18.4754291,73.9378532,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2e9ad2f041e9f:0xbdaca559ece22eb1!8m2!3d18.4754291!4d73.9378532!16s%2Fg%2F11n60mwkyy?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(135deg,hsl(214_60%_9%),hsl(207_55%_18%))] text-white p-6 text-center transition-colors hover:bg-[linear-gradient(135deg,hsl(214_60%_11%),hsl(207_55%_22%))]"
+                  data-testid="contact-office-location-link"
+                  aria-label="Open ZJ Infosystem office location in Google Maps"
+                >
+                  <div className="max-w-sm">
+                    <MapPin className="mx-auto h-10 w-10 text-[hsl(191_100%_70%)]" />
+                    <h4 className="mt-4 font-display text-2xl font-semibold">ZJ Infosystem office location</h4>
+                    <p className="mt-2 text-sm text-white/70">
+                      Open The Eyerish location in Google Maps.
+                    </p>
+                    <span className="mt-5 inline-flex items-center justify-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium">
+                      View on Google Maps
+                    </span>
+                  </div>
+                </a>
               </div>
             </Reveal>
           </div>
@@ -191,32 +203,32 @@ export default function Contact() {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="full_name">Full name *</Label>
-                        <Input id="full_name" data-testid="contact-full-name" className="mt-2" placeholder="Jane Doe" {...register("full_name")} />
+                        <Input id="full_name" required data-testid="contact-full-name" className="mt-2" {...register("full_name")} />
                         {errors.full_name && <p className="mt-1 text-xs text-destructive">{errors.full_name.message}</p>}
                       </div>
                       <div>
                         <Label htmlFor="company">Company</Label>
-                        <Input id="company" data-testid="contact-company" className="mt-2" placeholder="Acme Corp." {...register("company")} />
+                        <Input id="company" data-testid="contact-company" className="mt-2" {...register("company")} />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="email">Work email *</Label>
-                        <Input id="email" type="email" data-testid="contact-email" className="mt-2" placeholder="jane@company.com" {...register("email")} />
+                        <Label htmlFor="email">Email *</Label>
+                        <Input id="email" type="email" required data-testid="contact-email" className="mt-2" {...register("email")} />
                         {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email.message}</p>}
                       </div>
                       <div>
-                        <Label htmlFor="phone">Phone</Label>
-                        <Input id="phone" data-testid="contact-phone" className="mt-2" placeholder="+91 …" {...register("phone")} />
+                        <Label htmlFor="phone">Phone *</Label>
+                        <Input id="phone" required data-testid="contact-phone" className="mt-2" {...register("phone")} />
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="service">Service interested in</Label>
-                      <Select value={serviceValue} onValueChange={(v) => setValue("service", v)}>
+                      <Label htmlFor="service">Service interested in *</Label>
+                      <Select value={serviceValue} onValueChange={(v) => setValue("service", v, { shouldValidate: true, shouldDirty: true })}>
                         <SelectTrigger id="service" data-testid="contact-service" className="mt-2">
-                          <SelectValue placeholder="Select a service (optional)" />
+                          <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent className="max-h-72">
                           {SERVICES.map((s) => (
@@ -225,11 +237,12 @@ export default function Contact() {
                           <SelectItem value="Other">Other / Not sure</SelectItem>
                         </SelectContent>
                       </Select>
+                      {errors.service && <p className="mt-1 text-xs text-destructive">{errors.service.message}</p>}
                     </div>
 
                     <div>
                       <Label htmlFor="message">How can we help? *</Label>
-                      <Textarea id="message" data-testid="contact-message" rows={5} className="mt-2" placeholder="A few lines about what you're trying to solve…" {...register("message")} />
+                      <Textarea id="message" data-testid="contact-message" rows={5} className="mt-2" placeholder="A few lines about what you're looking for…" {...register("message")} />
                       {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message.message}</p>}
                     </div>
 

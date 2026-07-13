@@ -3,19 +3,17 @@ export const COMPANY = {
   tagline: "Transforming Technology. Empowering Businesses.",
   founded: "2021",
   founder: "Mr. Dadasaheb Shaikh",
-  email: "info@zjinfosystem.com",
-  phone: "+91 98765 43210",
-  whatsapp: "+91 98765 43210",
+  email: "zahid.shaikh@zjinfosystem.com",
+  phone: "+91 83905 00078",
+  whatsapp: "+91 83905 00078",
   address: {
-    line1: "PMC Garden Road, Satar Nagar",
-    line2: "Hadapsar, Pune",
-    state: "Maharashtra, India",
-    pincode: "411028",
+    lines: [
+      "The Eyerish, villa -13, SR No. 56/9, Gulmohar Park, Satav Nagar, Hadapsar, Pune, 411028",
+      "Maharashtra, India",
+    ],
   },
   social: {
-    linkedin: "https://www.linkedin.com/",
-    twitter: "https://twitter.com/",
-    facebook: "https://facebook.com/",
+    linkedin: "https://www.linkedin.com/company/zj-infosystems-india-private-limited",
   },
 };
 
