@@ -23,25 +23,6 @@ function ParticleField() {
   );
 }
 
-function FloatingCard({ x, y, delay = 0, children, className = "" }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      style={{ left: x, top: y }}
-      className={`absolute hidden lg:block ${className}`}
-    >
-      <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 5 + delay, repeat: Infinity, ease: "easeInOut" }}
-      >
-        {children}
-      </motion.div>
-    </motion.div>
-  );
-}
-
 export default function Hero() {
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -64,38 +45,11 @@ export default function Hero() {
         style={{ x: gx, y: gy }}
         className="pointer-events-none absolute inset-0"
         aria-hidden
-      >
+      > 
         <ParticleField />
       </motion.div>
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-30" aria-hidden />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[hsl(214_60%_8%)]" aria-hidden />
-
-      {/* Floating enterprise cards */}
-      <FloatingCard x="6%" y="22%" delay={0.2} className="w-56">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-4 shadow-2xl">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[hsl(191_100%_65%)]">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_2px_rgba(52,211,153,0.6)]" /> Uptime
-          </div>
-          <div className="mt-3 font-display text-3xl font-semibold">99.99%</div>
-          <div className="text-xs text-white/60 mt-1">Managed cloud SLA</div>
-        </div>
-      </FloatingCard>
-      <FloatingCard x="76%" y="28%" delay={0.5} className="w-60">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-4 shadow-2xl">
-          <div className="text-xs uppercase tracking-widest text-[hsl(191_100%_65%)]">Zero Trust</div>
-          <div className="mt-3 font-display text-lg font-semibold">Identity · Endpoint · Data</div>
-          <div className="mt-3 h-1.5 rounded-full bg-white/10 overflow-hidden">
-            <motion.div initial={{ width: 0 }} animate={{ width: "82%" }} transition={{ delay: 1, duration: 1.4 }} className="h-full bg-gradient-to-r from-[hsl(207_100%_55%)] to-[hsl(191_100%_55%)]" />
-          </div>
-        </div>
-      </FloatingCard>
-      <FloatingCard x="70%" y="70%" delay={0.8} className="w-52">
-        <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-md p-4 shadow-2xl">
-          <div className="text-xs uppercase tracking-widest text-[hsl(191_100%_65%)]">Azure Ready</div>
-          <div className="mt-3 font-display text-2xl font-semibold">Landing Zone</div>
-          <div className="text-xs text-white/60 mt-1">Deployed in 14 days</div>
-        </div>
-      </FloatingCard>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 pt-28 lg:pt-36 pb-32 lg:pb-44">
         <motion.div

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { COMPANY, SERVICES } from "@/lib/company";
 import Logo from "@/components/Logo";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -17,16 +17,6 @@ export default function Footer() {
               data-testid="social-linkedin"
               className="h-9 w-9 rounded-lg border border-border flex items-center justify-center hover:bg-secondary transition-colors">
               <Linkedin className="h-4 w-4" />
-            </a>
-            <a href={COMPANY.social.twitter} target="_blank" rel="noreferrer" aria-label="Twitter"
-              data-testid="social-twitter"
-              className="h-9 w-9 rounded-lg border border-border flex items-center justify-center hover:bg-secondary transition-colors">
-              <Twitter className="h-4 w-4" />
-            </a>
-            <a href={COMPANY.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"
-              data-testid="social-facebook"
-              className="h-9 w-9 rounded-lg border border-border flex items-center justify-center hover:bg-secondary transition-colors">
-              <Facebook className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -54,7 +44,19 @@ export default function Footer() {
         <div>
           <h4 className="text-xs uppercase tracking-[0.2em] font-bold text-muted-foreground mb-4">Reach Us</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
-            <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" /><span className="whitespace-pre-line">{COMPANY.address.lines.join("\n")}</span></li>
+            <li className="flex gap-3">
+              <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+              <a
+                href="https://maps.app.goo.gl/vrWeCng7n8VznDxN8"
+                target="_blank"
+                rel="noreferrer"
+                className="whitespace-pre-line hover:text-foreground"
+                aria-label="Open ZJ Infosystem office address in Google Maps"
+                data-testid="footer-address-link"
+              >
+                {COMPANY.address.lines.join("\n")}
+              </a>
+            </li>
             <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 flex-shrink-0" /><a href={`tel:${COMPANY.phone}`} className="hover:text-foreground">{COMPANY.phone}</a></li>
             <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 flex-shrink-0" /><a href={`mailto:${COMPANY.email}`} className="hover:text-foreground">{COMPANY.email}</a></li>
           </ul>

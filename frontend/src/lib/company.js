@@ -4,8 +4,8 @@ export const COMPANY = {
   founded: "2021",
   founder: "Mr. Dadasaheb Shaikh",
   email: "zahid.shaikh@zjinfosystem.com",
-  phone: "+91 83905 00078",
-  whatsapp: "+91 83905 00078",
+  phone: "+91 73873 08578",
+  whatsapp: "+91 73873 08578",
   address: {
     lines: [
       "The Eyerish, villa -13, SR No. 56/9, Gulmohar Park, Satav Nagar, Hadapsar, Pune, 411028",

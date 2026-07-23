@@ -211,12 +211,12 @@ async def submit_contact(payload: ContactCreate):
 
     # Send emails
     try:
-        send_company_email(submission)
+        send_company_email(submission.model_dump())
     except Exception as e:
         logger.error(f"Company email failed: {e}")
 
     try:
-        send_customer_email(submission)
+        send_customer_email(submission.model_dump())
     except Exception as e:
         logger.error(f"Customer email failed: {e}")
 
